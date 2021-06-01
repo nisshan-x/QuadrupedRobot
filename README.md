@@ -8,7 +8,7 @@ This repository hosts the code for Mini Pupper, a Raspberry Pi-based quadruped r
 ![Mini Pupper CC Max Morse](StanfordQuadruped/imgs/MiniPupper2Shells.jpg)
 
 Video of Mini Pupper in action:
-- https://youtu.be/fVB2cYGYmbU
+- https://youtu.be/OyYqfbHEQPU
 - https://youtu.be/cRrh5mLGNMc
 
 Link to project page: https://github.com/mangdangroboticsclub/QuadrupedRobot/tree/MiniPupper
@@ -85,4 +85,4 @@ Founded in 2020, [Mangdang Technology Co., Limited](https://www.mangdang.net/) (
 We are all dreamers, we look forward to connecting talents worldwide and innovating together to perform splendid times! 
 - For business, you can connect us by mail(sales@mangdang.net).
 - Beijing Office address: Innostyle, Building 5, No.36 Haidian West Street, Haidian District, Beijing, China.
-- Our online channel: [Youtube](https://www.youtube.com/channel/UCqHWYGXmnoO7VWHmENje3ug/featured), [Twiter](https://twitter.com/LeggedRobot), [FaceBook](https://www.facebook.com/afreez.gan/) 
+- Our online channel: [Youtube](https://www.youtube.com/channel/UCqHWYGXmnoO7VWHmENje3ug/featured), [Twitter](https://twitter.com/LeggedRobot), [FaceBook](https://www.facebook.com/afreez.gan/) 
