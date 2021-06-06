@@ -2,8 +2,18 @@
 ![Early Bird Pirce](StanfordQuadruped/imgs/EarlyBirdPirce.jpg)
 
 
-Link to project page: https://github.com/mangdangroboticsclub/QuadrupedRobot/tree/MiniPupper
+## Link to project page: 
+https://github.com/mangdangroboticsclub/QuadrupedRobot/tree/MiniPupper
 
+## EARLY BIRD PRIVILEGE
+- If you buy before June 30, 2021, you can have,
+  1. Buy Mini Pupper at the Early Bird Pirce.
+  2. Have the privilege to buy or ask your a friend to buy a Mini Puppet at the Early Bird Price before July 31, 2021.
+- If you help to exposure Mini Pupper by Twitter, or FaceBook, or any other your SNS tools before June 30, 2021.
+  1. Have the privilege to buy or ask your a friend to buy a Mini Pupper at the Early Bird Pirce before July 31, 2021.
+  2. Please capture your exposure and send to us by mail(sales@mangdeng.net) or [Youtube](https://www.youtube.com/channel/UCqHWYGXmnoO7VWHmENje3ug/featured), [Twitter](https://twitter.com/LeggedRobot), [FaceBook](https://www.facebook.com/afreez.gan/), LINE(+86 18612187787)
+  
+## FAQ
 - Early Bird Payment channels are as follows:
 
 Paypal channel:  afreez.gan@gmail.com

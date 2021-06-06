@@ -13,6 +13,10 @@ Video of Mini Pupper in action:
 
 Link to project page: https://github.com/mangdangroboticsclub/QuadrupedRobot/tree/MiniPupper
 
+## Early Bird Pirce for Mini Pupper
+![Early Bird Pirce](StanfordQuadruped/imgs/EarlyBirdPirce.jpg)
+For more information, please refer to [Early Bird Pirce Channel](https://github.com/mangdangroboticsclub/QuadrupedRobot/blob/MiniPupper/EarlyBirdPirce.md).
+
 ## Design Introduction
 We are incredibly pleased to introduce Mini Pupper! Our consumer-friendly, low-cost, open source, self-navigating robot for education. Even though this is a fully-featured quadruped robot, we are targeting this robot to meet our customers' number one request -- a platform to learn and study the unlimited potential of quadruped robots. And that's what this product is targeted for. We hope it will be the number one education platform for quadruped robotics in the world, and we think Mini Pupper is going to be a very big deal. 
 
