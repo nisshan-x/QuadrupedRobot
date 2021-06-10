@@ -5,13 +5,17 @@ Mini Pupper comes from Stanford Pupper led by [Nathan Kau](https://github.com/st
 
 This repository hosts the code for Mini Pupper, a Raspberry Pi-based quadruped robot. The project is generously supported by [Nathan Kau](https://github.com/stanfordroboticsclub/StanfordQuadruped), a member of [Stanford Student Robotics](https://stanfordstudentrobotics.org/), and [MangDang Technology Co., Limited](https://www.mangdang.net/)
 
-![Mini Pupper CC Max Morse](StanfordQuadruped/imgs/MiniPupper2Shells.jpg)
+![Mini Pupper Shells](StanfordQuadruped/imgs/MiniPupper2Shells.jpg)
 
 Video of Mini Pupper in action:
 - https://youtu.be/OyYqfbHEQPU
 - https://youtu.be/cRrh5mLGNMc
 
 Link to project page: https://github.com/mangdangroboticsclub/QuadrupedRobot/tree/MiniPupper
+
+![Mini Pupper Size](StanfordQuadruped/imgs/MiniPupper.SizeFeeling.jpg)
+
+![Mini Pupper Size](StanfordQuadruped/imgs/MiniPupperSize.jpg)
 
 ## Early Bird Pirce for Mini Pupper
 ![Early Bird Pirce](StanfordQuadruped/imgs/EarlyBirdPirce.jpg)
@@ -33,7 +37,7 @@ Cleaner builds were achieved by customizing the servo cable length and integrati
 
 The Mini Pupper has 12 DOF (degree of freedom), unlike the 8 DOF available through similar projects. There was a lot of debate within our team of whether we should keep with norms and produce the same 8 DOF. After much debate we came to the conclusion 8 DOF robots lack the ability to follow natural biological movements. The benefits of a 8 DOF quadruped only seemed to benefit the producer as the cost of the robot and parts required would be less. But we would have lost the original inspiration of the project… Which was to provide our customers with the highest quality best performing robot in this price range. All the servos are controlled one by one by a PCA9685. The gait performance is dependent on the 12 servos control loop time, requiring more effort to optimize 12 DOF vs 8DOF. There were doubts we could accomplish this with such a low price point. Although it was a challenge, after several months Mini Pupper is the first consumer 12 DOF quadruped robot in the world with a mass production intention.
 
-![MiniPupper Face](StanfordQuadruped/imgs/walk.0.25.jpg)
+![MiniPupper Face](StanfordQuadruped/imgs/Clean1.jpg)
 
 The HMI (Human-Machine-Interface) LCD is another wonderful function. Taking Mini Pupper from a bunch of screws and motors, an animalistic appearance is given to Mini Pupper. You can communicate with it, you can customize it. Mini Pupper is the first consumer quadruped robot with LCD’s adding animal behaviors to your robot. 
 
@@ -48,6 +52,8 @@ If you want to join us and move together with us, please don't hesitate to send 
 We are targeting Mini Pupper for education. Education courses are also coming. In order to make the study of Mini Pupper easy and convenient, the courses will be released step by step, including mechanical, hardware, ROS, SLAM, navigation, AI functions and so on. If you’ve been searching for an open sourced consumer grade quadruped research robot, Mini Pupper is the best platform for you.
 
 Mini Pupper is incredible compared to anything else out there. It looks like it’s from another planet, Mars?
+
+![MiniPupper Mars](StanfordQuadruped/imgs/Mars7.jpg)
 
 ## How it works smarter
 ![Overview MiniPupperRoadmap](StanfordQuadruped/imgs/MiniPupperRoadmap.jpg)
@@ -67,7 +73,7 @@ To get started, check out the pages linked below on part sourcing and assembly.
 - Robot operation(same with pupper): https://pupper.readthedocs.io/en/latest/guide/operation.html
 
 ## How to Purchase 
-If you purchase the parts yourself one by one, it’ll run you about $800 and more time. However, you can purchase a kit to build the robot from MangDang channel for cheaper, and the key point is that you can buy everything at once and save your much time.
+If you purchase the parts yourself one by one, it’ll run you about $800 and more time. However, you can purchase a kit to build the robot from MangDang channel for cheaper and one-stop shopping. 
 - Amazon channel: [Mini Pupper Amazon US](https://www.amazon.com/s?me=A3V5171RNQ5C18&marketplaceID=ATVPDKIKX0DER) , [Mini Pupper Amazon Japan](https://www.amazon.co.jp/s?me=A14LOTMOI42BRX&marketplaceID=A1VC38T7YXB528)
 - Paypal channel: MangDang Paypal account is afreez.gan@gmail.com
 - Aliexpress channel: [Mini Pupper Aliexpress](https://www.aliexpress.com/store/911381222?spm=a2g0o.detail.1000007.1.2ed464e6sdYBwy)
@@ -81,8 +87,8 @@ About FAQ, please refer to https://groups.google.com/g/minipupper/c/D6u_4VIbKQM
 ## About Stanford Student Robotics
 [Stanford Student Robotics](https://stanfordstudentrobotics.org/) is an entirely student-run group dedicated to building cool robots and learning new things. You can find many amazing projects on the website. Mini Pupper project is supported by [Nathan Kau](https://github.com/stanfordroboticsclub/StanfordQuadruped) from Stanford Student Robotics.
 
-## About MangDang Technology
-Founded in 2020, [Mangdang Technology Co., Limited](https://www.mangdang.net/) (Mangdang) specializes in the research, development, and production of robot products that make peoples lives better. Mangdang is headquartered in HongKong, with R&D offices in Beijing. We are a global team with members from many countries and regions such as the United States, Japan, Canada, Europe, China and so on.
+## About MangDang Technology Co., Limited
+Founded in 2020, [MangDang Technology Co., Limited](https://www.mangdang.net/) (MangDang) specializes in the research, development, and production of robot products that make peoples lives better. Mangdang is headquartered in HongKong, with R&D offices in Beijing. We are a global team with members from many countries and regions such as the United States, Japan, Canada, Europe, China and so on.
 - Mission: Using AI to make life better.
 - Vision: Every home, every one can use our robot product to make life better.
 
