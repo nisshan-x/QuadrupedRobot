@@ -18,8 +18,12 @@ Link to project page: https://github.com/mangdangroboticsclub/QuadrupedRobot/tre
 ![Mini Pupper Size](StanfordQuadruped/imgs/MiniPupperSize.jpg)
 
 ## Early Bird Pirce for Mini Pupper
-![Early Bird Pirce](StanfordQuadruped/imgs/EarlyBirdPirce.jpg)
-For more information, please refer to [Early Bird Pirce Channel](https://github.com/mangdangroboticsclub/QuadrupedRobot/blob/MiniPupper/EarlyBirdPirce.md).
+![Kickstarter](StanfordQuadruped/imgs/Kickstarter.jpg)
+
+Mini Pupper has been launched on Stanford Pupper website, picked as a favorite, and featured on Hackster and Hackaday!
+We are preparing the special price kits for the early birds, and will update our Kickstarter information by mail(sales@mangdang.net) & [Twitter](https://twitter.com/LeggedRobot), [FaceBook](https://www.facebook.com/afreez.gan/) .
+Very appreciated if you can support us or any advice!
+Mini Pupper is growing more and more Powerful, Smarter.
 
 ## Design Introduction
 We are incredibly pleased to introduce Mini Pupper! Our consumer-friendly, low-cost, open source, self-navigating robot for education. Even though this is a fully-featured quadruped robot, we are targeting this robot to meet our customers' number one request -- a platform to learn and study the unlimited potential of quadruped robots. And that's what this product is targeted for. We hope it will be the number one education platform for quadruped robotics in the world, and we think Mini Pupper is going to be a very big deal. 
@@ -55,7 +59,7 @@ Mini Pupper is incredible compared to anything else out there. It looks like it�
 
 ![MiniPupper Mars](StanfordQuadruped/imgs/Mars7.jpg)
 
-## How it works smarter
+## How to Work Smart
 ![Overview MiniPupperRoadmap](StanfordQuadruped/imgs/MiniPupperRoadmap.jpg)
 
 The main software improvements from Pupper is our FSN (Full Self-Navigation) system, based on Ubuntu&ROS. We are moving forward to FSN target step by step. The interface is also open, we absolutely welcome people to contribute to the project. If you want to join us and move together with us, please don't hesitate to send us email!(sales@mangdang.net)
