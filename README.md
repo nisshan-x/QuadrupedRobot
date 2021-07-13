@@ -1,14 +1,42 @@
-# Mini Pupper Quadruped
+# Mini Pupper: Boston Dynamics Spot Robot Dog in the Palm
 ![Mini Pupper CC Max Morse](StanfordQuadruped/imgs/MiniPupper.jpg)
-## 12 DOF Quadruped Robot with Navigation Technology for Education
+
+![Mini Pupper ROS Navigation](StanfordQuadruped/imgs/MiniPupper.ROS.Navigation.480P.gif)
+
+## Early Bird Special Pirce for Mini Pupper Crowdfunding Campaign
+
+Mini Pupper has been launched on Stanford Pupper website, picked as a favorite, and featured on Hackster and Hackaday!
+We are preparing the special price kits for the early birds, and will launch on Kickstarter or Indiegogo very soon.
+You can find our [Mini Pupper Prototype](https://youtu.be/rMgQ13uQCG0), on Dec, 2020, we used more 8+ months to make Mini Pupper stable, there is NO risk to ship it to you.
+Very appreciated if you can support us or any advice! We are trying our best to make it better, smarter
+
+Please send your mail address to sales@mangdang.net , We will report our weekly report every weekend before the campaign.
+
+Campaign Sample Tiers,
+- $1xx USD : Research Basic Kit: Custom Parts(Servox13 + PCBA + LCD) + Carbon fiber parts + the small parts(bearing, screws...).
+- $3xx USD : Research Kit: Including all the parts except the Raspberry Pi 4B and SD card.
+- $4xx USD : Complete Kit: Including all the parts
+- $4xx USD : Pre-Assembled
+
+You can find more information in the [BOM](https://drive.google.com/file/d/18phJat8GdK5Yq5p4K1ZmfY1-nMf1lQw4/view?usp=sharing).
+Our target is NOT the cheapest robot dog, but the BEST robot dog for education with acceptable price.
+
+## 12 DOF, Low-cost, ROS Robot Dog with Navigation Technology for Education
 Mini Pupper comes from Stanford Pupper led by [Nathan Kau](https://github.com/stanfordroboticsclub/StanfordQuadruped), it is a mini pupper that can hop, trot, and run around. Its low cost, simple design and rich functions especially the upcoming navigation system will allow robot enthusiasts in K-12 and beyond to get their hands on fun, dynamic robots.
+
+For K12, you can find many funcy use cases samples to study the machenical, hardware, sensors(Mic array, speaker, ultrasonic, camera, Lidar...what ever you want), software, algorithms and so on. For beyond, you can use it as base device to study ROS(Robot Operating System), self driving, SLAM, Navigation, reinforcement learning and other AI functions. 
+![Mini Pupper PullCartCase](StanfordQuadruped/imgs/PullCartCase.gif)
+
+![Mini Pupper funnycase](StanfordQuadruped/imgs/funnycase1.gif)
+
+![Mini Pupper funnycase](StanfordQuadruped/imgs/funnycase2.gif)
 
 This repository hosts the code for Mini Pupper, a Raspberry Pi-based quadruped robot. The project is generously supported by [Nathan Kau](https://github.com/stanfordroboticsclub/StanfordQuadruped), a member of [Stanford Student Robotics](https://stanfordstudentrobotics.org/), and [MangDang Technology Co., Limited](https://www.mangdang.net/)
 
 ![Mini Pupper Shells](StanfordQuadruped/imgs/MiniPupper2Shells.jpg)
 
 Video of Mini Pupper in action:
-- https://youtu.be/OyYqfbHEQPU
+- https://youtu.be/WghufWRAieE
 - https://youtu.be/cRrh5mLGNMc
 
 Link to project page: https://github.com/mangdangroboticsclub/QuadrupedRobot/tree/MiniPupper
@@ -16,14 +44,6 @@ Link to project page: https://github.com/mangdangroboticsclub/QuadrupedRobot/tre
 ![Mini Pupper Size](StanfordQuadruped/imgs/MiniPupper.SizeFeeling.jpg)
 
 ![Mini Pupper Size](StanfordQuadruped/imgs/MiniPupperSize.jpg)
-
-## Early Bird Pirce for Mini Pupper
-![Kickstarter](StanfordQuadruped/imgs/Kickstarter.jpg)
-
-Mini Pupper has been launched on Stanford Pupper website, picked as a favorite, and featured on Hackster and Hackaday!
-We are preparing the special price kits for the early birds, and will update our Kickstarter information by mail(sales@mangdang.net) & [Twitter](https://twitter.com/LeggedRobot), [FaceBook](https://www.facebook.com/afreez.gan/) .
-Very appreciated if you can support us or any advice!
-Mini Pupper is growing more and more Powerful, Smarter.
 
 ## Design Introduction
 We are incredibly pleased to introduce Mini Pupper! Our consumer-friendly, low-cost, open source, self-navigating robot for education. Even though this is a fully-featured quadruped robot, we are targeting this robot to meet our customers' number one request -- a platform to learn and study the unlimited potential of quadruped robots. And that's what this product is targeted for. We hope it will be the number one education platform for quadruped robotics in the world, and we think Mini Pupper is going to be a very big deal. 
@@ -35,6 +55,11 @@ Beginning last year, we shipped many Stanford Pupper units worldwide. After such
 Our Mini Pupper servo is a custom servo to meet the requirements of our new Pupper! Compact, Durable, Unique. In order to run the Mini Pupper organically and smooth, high torque & high-fidelity servos were required. We tested many servos on the market and have not found any 9g servo up to the task.  After too many Q.C issues we finally gave up on off the shelf hobbyist servos, the last thing MangDang wants is for our intelligent customers to be let down by poor quality servos. So, we spent several months optimizing and configuring a servo that would work for our project, including tuning the servo parameters ourselves! It is now named Mini Pupper servo. 
 
 You can use our Mini Pupper to explore many gait performances, such as, Trot (diagonal pairs), Pace (lateral pairs), and the Bound (front and rear pairs). We’re confident our Mini Pupper Servos will outperform any servo for the balance of performance and price.
+
+![MiniPupper gait performances](StanfordQuadruped/imgs/Bound.gif)
+
+![MiniPupper gait performances](StanfordQuadruped/imgs/Pace.gif)
+
 
 The mechanical design is simple, stable and beautiful. You can find many prototype quadruped robots, but few can go to market because of its complex design! Difficult to assemble, lack stability while trotting and require unpredictable costly repairs. For the average engineering student or extremely curious individual these quadrupeds will work, however they are not suitable for mass production... The Mini Pupper addresses these issues by creating a professional robot designed specifically for mass production, driving unit costs low enough for even low budget schools to acquire the robots for learning. Driving innovation for the next generation of robotics enthusiasts. Unlike other 3D printed robots MangDang uses metal threaded inserts to ensure customers can disassemble and reassemble easily while making repairs after extensive use. All parts are secured with quality fasteners ensuring great fit and function as well as durability of the unit. 
 Cleaner builds were achieved by customizing the servo cable length and integrating the IMU into our carry board in order to reduce wiring necessary and have an overall clean setup in the body of Mini Pupper. No lose wires! Unlike other enthusiast made kits, our Mini Pupper does not require the user plug or unplug wires to power the unit on and off. A simple flick of a switch is all you need! The Mini Pupper battery is charged without the need to remove the battery from the robot, onboard volt meters will sound alarm and worn you that your unit needs energy. Mini Puppers design was based off the feedback we received from our existing customers. Because of this we now have a quadruped robot easier to setup and play with than any other robot on the market. Customers with minimal or no experience will be able to use this robot. Mini Pupper is the first consumer quadruped robot with this price point in the world.
