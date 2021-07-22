@@ -29,7 +29,7 @@ You can also check the version from `ubuntu offical website. <https://releases.u
 3. Use `etcher <https://www.balena.io/etcher/>`_ to flash the card. 
 ##########################################################################################
 
-* For quick start, you can also download the  `pre-installed image <https://drive.google.com/file/d/1oioyTikobPr9JYSfvIa81A8sGdt3J97Z/view?usp=sharing>`_ , flash it into the card, then skip all the following steps and start to calibarte the Pupper Mini.
+* For quick start, you can also download the  `pre-installed image <https://drive.google.com/file/d/16pfS7e765MsS6gidacJCiBaMOjwlPwq-/view?usp=sharing>`_ , (username: ubuntu ,  password: mangdang ) flash it into the card, then skip all the following steps and start to calibarte the Pupper Mini.
 
 * If you are using the recommended etcher, this is the start-up menu. Select ubuntu-18.04.5-preinstalled-server-arm64+raspi4.img (file inside zip )and the SD card. 
 
