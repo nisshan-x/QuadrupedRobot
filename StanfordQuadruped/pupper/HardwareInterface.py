@@ -71,7 +71,10 @@ def angle_to_pwm(angle, servo_params, axis_index, leg_index):
 
 
 def angle_to_duty_cycle(angle, pwm_params, servo_params, axis_index, leg_index):
-    return int(angle_to_pwm(angle, servo_params, axis_index, leg_index) * 1e3)
+    duty_cycle_f = angle_to_pwm(angle, servo_params, axis_index, leg_index) * 1e3
+    if np.isnan(duty_cycle_f):
+        return 0
+    return int(duty_cycle_f)
 
 
 def initialize_pwm(pi, pwm_params):

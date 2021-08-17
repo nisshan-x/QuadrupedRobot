@@ -33,6 +33,9 @@ function io_init(){
 io_init
 sleep 1
 
+#remove bluebooth cache
+sudo rm /var/lib/bluetooth/* -rf
+
 #export pwm channel
 for i in $(seq 0 15)
 do
