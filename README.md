@@ -16,7 +16,7 @@ Pi: it’s super expandable.
 ## Mini Pupper Crowdfunding Campaign
 
 Mini Pupper has been launched on Stanford Pupper website, and will launch on Kickstarter very soon.
-You can find our [Mini Pupper Prototype](https://youtu.be/rMgQ13uQCG0), on Dec, 2020, we used more 8+ months to make Mini Pupper stable, there is NO risk to ship it to you.
+You can find our [Mini Pupper Prototype](https://youtu.be/rMgQ13uQCG0), on Dec, 2020, we used more than 8+ months to make Mini Pupper stable, there is NO risk to ship it to you.
 
 You will receive not only the hardware kit, but also more high quality services. It will be very convenient and helpful to let you make your own robot dog.
 - Mini Pupper Hardware kit.
@@ -28,7 +28,7 @@ You will receive not only the hardware kit, but also more high quality services.
 
 You can get our latest status after send your mail address to sales@mangdang.net  
 
-or join our Facebook group ( https://www.facebook.com/groups/519009562699751 ).
+or join our [Facebook group](https://www.facebook.com/groups/519009562699751).
 
 
 ## Problem
@@ -40,13 +40,11 @@ Beginning last year, we shipped many Stanford Pupper units worldwide. After such
 
 ## Solution and Product
 Mini Pupper is the first ROS, open-source robot dog platform that supports ROS SLAM, Navigation, and OpenCV AI features with Lidar, camera sensors. It's really a Boston Dynamics Spot Robot Dog in the Palm and legged "TurtleBot"  for study at less than $500USD. 
-![SLAM](StanfordQuadruped/imgs/Slam.gif)
+![SLAM](StanfordQuadruped/imgs/SLAM.gif)
 
 ![ObjectTracking](StanfordQuadruped/imgs/ObjectTracking.gif)
 
 Mini Pupper will make robotics easier for schools, homeschool families, enthusiasts, and beyond.
-
-![PullCartCase](StanfordQuadruped/imgs/PullCartCase.gif)
 
 ![Pace](StanfordQuadruped/imgs/Pace.gif)
 
@@ -83,7 +81,7 @@ We are inviting 10 professional hackers worldwide to prepare the courses. It wil
 ![MiniPupper OnlineCourse](StanfordQuadruped/imgs/OnlineCourse.0.25MP.jpg)
 
 ## How to Work Smart
-The main software improvement from Pupper is our FSN (Full Self-Navigation) system, based on Ubuntu&ROS. We are moving forward to the FSN target step by step. The interface is also open, we absolutely welcome people to contribute to the project. If you want to join us and move together with us, please don't hesitate to send us an email!
+The main software improvement from Pupper is our FSN (Full Self-Navigation) system, based on Ubuntu&ROS and OpenCV. We are moving forward to the FSN target step by step. The interface is also open, we absolutely welcome people to contribute to the project. If you want to join us and move together with us, please don't hesitate to send us an email!
 ![handSignal](StanfordQuadruped/imgs/handSignal.gif)
 
 ## How to Build 
