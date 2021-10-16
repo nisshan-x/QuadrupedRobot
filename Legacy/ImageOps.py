@@ -18,7 +18,6 @@
 #
 
 from . import Image
-from ._util import isStringType
 import operator
 import functools
 import warnings

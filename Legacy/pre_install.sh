@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-###Install all software dependence for Pupper
+###Install all software dependence for Mini Pupper
 
 # Update time and source
 sudo date -s "$(curl -s --head http://www.baidu.com | grep ^Date: | sed 's/Date: //g')"
@@ -30,7 +30,7 @@ yes | sudo pip3 install adafruit-blinka==5.13.1
 yes | sudo pip3 install adafruit-CircuitPython-BusDevice==5.0.4
 yes | sudo pip3 install spidev
 
-#The WA for Pillow lib in raspberry ubuntu 18.04
+#The WA for Pillow lib in raspberry ubuntu 20.04
 #yes | pip3 install -i Pillow==5.4.1
 sudo rm /usr/lib/python3/dist-packages/PIL/ImageOps.py -f
 sudo cp ImageOps.py  /usr/lib/python3/dist-packages/PIL/ImageOps.py -f
