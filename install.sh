@@ -10,6 +10,6 @@ make
 sudo bash install.sh
 
 # Install standford robot and UDPComms services
-sudo bash ~/Robotics/QuadrupedRobot/StanfordQuadruped/install.sh
-sudo bash ~/Robotics/QuadrupedRobot/UDPComms/install.sh
+sudo bash /home/ubuntu/Robotics/QuadrupedRobot/StanfordQuadruped/install.sh
+sudo bash /home/ubuntu/Robotics/QuadrupedRobot/UDPComms/install.sh
 
