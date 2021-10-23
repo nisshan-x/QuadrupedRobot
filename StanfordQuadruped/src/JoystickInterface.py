@@ -16,6 +16,9 @@ class JoystickInterface:
         self.previous_hop_toggle = 0
         self.previous_activate_toggle = 0
 
+        self.previous_dance_switch_toggle = 0
+        self.previous_gait_switch_toggle = 0
+
         self.message_rate = 50
         self.udp_handle = UDPComms.Subscriber(udp_port, timeout=0.3)
         self.udp_publisher = UDPComms.Publisher(udp_publisher_port,65532)
@@ -38,10 +41,19 @@ class JoystickInterface:
             activate_toggle = msg["L1"]
             command.activate_event = (activate_toggle == 1 and self.previous_activate_toggle == 0)
 
+            dance_toggle = msg["L2"]
+            command.dance_switch_event = (dance_toggle == 1 and self.previous_dance_switch_toggle != 1)
+
+            gait_switch_toggle = msg["R2"]
+            command.gait_switch_event = (gait_switch_toggle == 1 and self.previous_gait_switch_toggle != 1)
+
             # Update previous values for toggles and state
             self.previous_gait_toggle = gait_toggle
             self.previous_hop_toggle = hop_toggle
             self.previous_activate_toggle = activate_toggle
+
+            self.previous_dance_switch_toggle = dance_toggle
+            self.previous_gait_switch_toggle = gait_switch_toggle
 
             ####### Handle continuous commands ########
             x_vel = msg["ly"] * self.config.max_x_velocity

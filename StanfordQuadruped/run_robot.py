@@ -16,6 +16,8 @@ from Mangdang.LCD.gif import AnimatedGif
 from src.Controller import Controller
 from src.JoystickInterface import JoystickInterface
 from src.State import State
+from pupper.MovementGroup import MovementLib
+from src.MovementScheme import MovementScheme
 from pupper.HardwareInterface import HardwareInterface
 from pupper.Config import Configuration
 from pupper.Kinematics import four_legs_inverse_kinematics
@@ -132,7 +134,9 @@ def main():
     lock = multiprocessing.Lock()
     animated_process = Process(target=animated_thr_fun, args=(disp, duration, is_connect, current_leg, lock))
     #animated_process.start()
-
+    
+    #Create movement group scheme
+    movement_ctl = MovementScheme(MovementLib)
     # Create imu handle
     if use_IMU:
         imu = IMU()
@@ -199,8 +203,19 @@ def main():
 
             # Read imu data. Orientation will be None if no data was available
             state.quat_orientation = quat_orientation
-            # Step the controller forward by dt
-            controller.run(state, command)
+            
+            # movement scheme
+            movement_switch = command.dance_switch_event
+            gait_state = command.trot_event  
+
+            if gait_state == True:                # if triger tort event, reset the movement number to 0
+                movement_ctl.resetMovementNumber()
+            movement_ctl.runMovementScheme(movement_switch)
+
+            food_location = movement_ctl.getMovemenLegsLocation()
+            attitude_location = movement_ctl.getMovemenAttitudeLocation()
+  
+            controller.run(state,command,food_location,attitude_location)
 
             # Update the pwm widths going to the servos
             hardware_interface.set_actuator_postions(state.joint_angles)
