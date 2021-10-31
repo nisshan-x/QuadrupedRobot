@@ -38,17 +38,19 @@ class Movements:
         self.attitude_subphase_length = 1
 
         #execute type  :Single , Multiple ,Forever
-        self.legs_execute_type = 'Forever'   
-        self.legs_execute_time = 0        
+        self.all_egs_execute_type = 'Forever'  
+        self.all_legs_execute_time = 1 
+        self.legs_execute_time = [1,1,1,1]      
         self.legs_exit_to_stand = True 
     
         self.actuators_execute_type = 'Single'   
-        self.actuatosr_execute_time = 1 
+        self.all_actuators_execute_time = 1
+        self.actuators_execute_time = [1,1,1] 
 
         self.attitude_execute_type = 'Single'   
-        self.attitude_execute_time = 1        
-
-
+        self.all_attitude_execute_time = 1        
+        self.attitude_execute_time = [1,1,1]        
+        
         #start and stop phase point
         self.leg_phase_start = [0,0,0,0]     #start of subphase number for 4 legs
         self.leg_phase_stop  = [0,0,0,0]     #stop of subphase number for 4 legs
@@ -103,12 +105,17 @@ class Movements:
         # init execute type and execute time
         if exe_type == 'Single':
             self.legs_execute_type = 'Single' 
-            self.legs_execute_time = 1
-
-        if exe_type == 'Multiple':
+            self.all_legs_execute_time = 1
+            for index in range(4):
+                self.legs_execute_time[index] = 1
+                
+            
+        elif exe_type == 'Multiple':
             self.legs_execute_type = 'Multiple'
-            self.legs_execute_time = time
-
+            self.all_legs_execute_time = time
+            for index in range(4):
+                self.legs_execute_time[index] = time
+                
         elif exe_type == 'Forever':
             self.legs_execute_type = 'Forever'
 
@@ -151,12 +158,16 @@ class Movements:
         # init execute type and execute time
         if exe_type == 'Single':
             self.attitude_execute_type = 'Single'
-            self.attitude_execute_time = 1
-
-        if exe_type == 'Multiple':
+            self.all_attitude_execute_time = 1
+            for index in range(3):
+                self.attitude_execute_time[index] = 1
+                
+        elif exe_type == 'Multiple':
             self.attitude_execute_type = 'Multiple'
-            self.attitude_execute_time = time
-
+            self.all_attitude_execute_time = time
+            for index in range(3):
+                self.attitude_execute_time[index] = time
+                
         elif exe_type == 'Forever':
             self.attitude_execute_type = 'Forever'
 
@@ -185,10 +196,14 @@ class Movements:
         # init execute type and execute time
         if exe_type == 'Single':
             self.actuators_execute_type = 'Single'
-            self.actuators_execute_time = 1
-        if exe_type == 'Multiple':
+            self.all_actuators_execute_time = 1
+            for index in range(3):
+                self.actuators_execute_time[index] = 1
+        elif exe_type == 'Multiple':
             self.actuators_execute_type = 'Multiple'
-            self.actuators_execute_time = time
+            self.all_actuators_execute_time = time
+            for index in range(3):
+                self.actuators_execute_time[index] = time
         elif exe_type == 'Forever':
             self.actuators_execute_type = 'Forever'
 
@@ -207,48 +222,198 @@ class Movements:
         self.actuator_pre = self.actuator_now
 
         return True
-
-    def updateLegPhaseNumber(self):
-
-        for leg_num in range(4):
-            # update start point phase
-            self.leg_phase_start[leg_num]  = self.leg_phase_start[leg_num] + 1
-            if self.leg_phase_start[leg_num] >= len(self.legs_phase_all[leg_num]):
-                self.leg_phase_start[leg_num] = 0
-
-            # update stop point phase
-            self.leg_phase_stop[leg_num]  = self.leg_phase_start[leg_num] + 1
-            if self.leg_phase_stop[leg_num] >= len(self.legs_phase_all[leg_num]):
-                self.leg_phase_stop[leg_num] = 0
-            
-        return True
-
-    def updateActuatorPhaseNumber(self):
-
+        
+    def resetActuators(self):
+    
+        self.actuator_tick = 0
+     
+        for index in range(3):
+            self.actuators_execute_time[index] = self.all_actuators_execute_time
+        
+        #init start and stop phase for actuators
         for actuator_num in range(3):
             # update start point phase
-            self.actuator_phase_start[actuator_num]  = self.actuator_phase_start[actuator_num] + 1
+            self.actuator_phase_start[actuator_num]  = 0
             if self.actuator_phase_start[actuator_num] >= len(self.actuators_phase_all[actuator_num]):
                 self.actuator_phase_start[actuator_num] = 0
             # update stop point phase
             self.actuator_phase_stop[actuator_num]  = self.actuator_phase_start[actuator_num] + 1
             if self.actuator_phase_stop[actuator_num] >= len(self.actuators_phase_all[actuator_num]):
-
-                self.actuator_phase_stop[actuator_num] = 0
+                self.actuator_phase_stop[actuator_num] = 0 
+                
+        #init movement actuator delt               
+        self.actuator_now = [self.actuators_phase_all[0][0],self.actuators_phase_all[1][0],self.actuators_phase_all[2][0]]
+        self.actuator_pre = self.actuator_now
+        
         return True
-
-    def updateAttitudePhaseNumber(self):
-
+        
+    def resetAttitude(self): 
+    
+        self.attitude_tick = 0    
+        
+        for index in range(3):
+            self.attitude_execute_time[index] = self.all_attitude_execute_time  
+              
+        #init start and stop phase for attitude
         for attitude_num in range(3):
             # update start point phase
-            self.attitude_phase_start[attitude_num]  = self.attitude_phase_start[attitude_num] + 1
+            self.attitude_phase_start[attitude_num]  = 0
             if self.attitude_phase_start[attitude_num] >= len(self.attitudes_phase_all[attitude_num]):
                 self.attitude_phase_start[attitude_num] = 0
             # update stop point phase
             self.attitude_phase_stop[attitude_num]  = self.attitude_phase_start[attitude_num] + 1
             if self.attitude_phase_stop[attitude_num] >= len(self.attitudes_phase_all[attitude_num]):
-
                 self.attitude_phase_stop[attitude_num] = 0
+
+        #init movement location 
+        self.attitude_now = [self.attitudes_phase_all[0][0],self.attitudes_phase_all[1][0],self.attitudes_phase_all[2][0]]
+        self.attitude_pre = self.attitude_now    
+        return True   
+        
+    def resetLegs(self):   
+    
+        self.tick = 0;
+        for index in range(4):
+            self.legs_execute_time[index] = self.all_legs_execute_time
+             
+        #init start and stop phase for legs
+        for leg_num in range(4):
+            # update start point phase
+            self.leg_phase_start[leg_num]  = 0
+            if self.leg_phase_start[leg_num] >= len(self.legs_phase_all[leg_num]):
+                self.leg_phase_start[leg_num] = 0
+            # update stop point phase
+            self.leg_phase_stop[leg_num]  = self.leg_phase_start[leg_num] + 1
+            if self.leg_phase_stop[leg_num] >= len(self.legs_phase_all[leg_num]):
+                self.leg_phase_stop[leg_num] = 0
+   
+        #init movement legs delt
+        for leg_num in range(4):
+            
+            phase_num_start = self.leg_phase_start[leg_num]
+            phase_num_stop =  self.leg_phase_stop[leg_num]
+
+            location_start  = self.legs_phase_all[leg_num][phase_num_start]
+            location_stop  = self.legs_phase_all[leg_num][phase_num_stop]
+            
+            for xyz in range(3):
+                
+                self.legs_delt[leg_num][xyz] = location_stop[xyz] - location_start[xyz]
+               
+        #init movement location 
+        self.legs_now = []
+        self.legs_pre = []
+        for leg in range(4):
+            self.legs_now.append(self.legs_phase_all[leg][0])
+            self.legs_pre.append(self.legs_phase_all[leg][0])    
+            
+        return True  
+          
+    def updateLegPhaseNumber(self):
+
+        if self.legs_execute_type == 'Forever':
+            for leg_num in range(4):
+                # update start point phase
+                self.leg_phase_start[leg_num]  = self.leg_phase_start[leg_num] + 1
+                if self.leg_phase_start[leg_num] >= len(self.legs_phase_all[leg_num]):
+                    self.leg_phase_start[leg_num] = 0
+
+                # update stop point phase
+                self.leg_phase_stop[leg_num]  = self.leg_phase_start[leg_num] + 1
+                if self.leg_phase_stop[leg_num] >= len(self.legs_phase_all[leg_num]):
+                    self.leg_phase_stop[leg_num] = 0        
+        else:      
+            for leg_num in range(4):
+                # update start point phase
+                if self.legs_execute_time[leg_num] != 0:
+                    self.leg_phase_start[leg_num]  = self.leg_phase_start[leg_num] + 1
+                    if self.leg_phase_start[leg_num] >= len(self.legs_phase_all[leg_num]):                  
+                        self.legs_execute_time[leg_num] = self.legs_execute_time[leg_num] - 1
+                        if self.legs_execute_time[leg_num] != 0:
+                            self.leg_phase_start[leg_num] = 0
+                        else:
+                            self.leg_phase_start[leg_num] = len(self.legs_phase_all[leg_num]) - 1
+
+                    # update stop point phase
+                    self.leg_phase_stop[leg_num]  = self.leg_phase_start[leg_num] + 1
+                    if self.leg_phase_stop[leg_num] >= len(self.legs_phase_all[leg_num]):
+                        if self.legs_execute_time[leg_num] != 0:
+                            self.leg_phase_stop[leg_num] = 0
+                        else:
+                            self.leg_phase_stop[leg_num] = len(self.legs_phase_all[leg_num]) - 1
+                              
+        return True
+
+    def updateActuatorPhaseNumber(self):
+
+        if self.actuators_execute_type == 'Forever':
+            for actuator_num in range(3):
+                # update start point phase
+                self.actuator_phase_start[actuator_num]  = self.actuator_phase_start[actuator_num] + 1
+                if self.actuator_phase_start[actuator_num] >= len(self.actuators_phase_all[actuator_num]):
+                    self.actuator_phase_start[actuator_num] = 0
+                # update stop point phase
+                self.actuator_phase_stop[actuator_num]  = self.actuator_phase_start[actuator_num] + 1
+                if self.actuator_phase_stop[actuator_num] >= len(self.actuators_phase_all[actuator_num]):
+                    self.actuator_phase_stop[actuator_num] = 0
+        else:
+            for actuator_num in range(3):
+                # update start point phase
+                if self.actuators_execute_time[actuator_num] != 0:
+                    self.actuator_phase_start[actuator_num]  = self.actuator_phase_start[actuator_num] + 1
+                    if self.actuator_phase_start[actuator_num] >= len(self.actuators_phase_all[actuator_num]):
+                    
+                        self.actuators_execute_time[actuator_num] = self.actuators_execute_time[actuator_num] - 1
+                    
+                        if self.actuators_execute_time[actuator_num] != 0:
+                            self.actuator_phase_start[actuator_num] = 0
+                        else:
+                            self.actuator_phase_start[actuator_num] = len(self.actuators_phase_all[actuator_num]) - 1
+                        
+                    # update stop point phase
+                    self.actuator_phase_stop[actuator_num]  = self.actuator_phase_start[actuator_num] + 1
+                    if self.actuator_phase_stop[actuator_num] >= len(self.actuators_phase_all[actuator_num]):                 
+                        if self.actuators_execute_time[actuator_num] != 0:
+                            self.actuator_phase_stop[actuator_num] = 0 
+                        else:
+                            self.actuator_phase_stop[actuator_num] = len(self.actuators_phase_all[actuator_num]) - 1  
+   
+        return True
+
+    def updateAttitudePhaseNumber(self):
+
+        if self.attitude_execute_type == 'Forever':
+            for attitude_num in range(3):
+                # update start point phase
+                self.actuator_phase_start[attitude_num]  = self.actuator_phase_start[attitude_num] + 1
+                if self.actuator_phase_start[attitude_num] >= len(self.actuators_phase_all[attitude_num]):
+                    self.actuator_phase_start[attitude_num] = 0
+                # update stop point phase
+                self.actuator_phase_stop[attitude_num]  = self.actuator_phase_start[attitude_num] + 1
+                if self.actuator_phase_stop[attitude_num] >= len(self.actuators_phase_all[attitude_num]):
+                    self.actuator_phase_stop[attitude_num] = 0
+        else:
+            for attitude_num in range(3):
+                # update start point phase
+                if self.attitude_execute_time[attitude_num] != 0:
+                    self.attitude_phase_start[attitude_num]  = self.attitude_phase_start[attitude_num] + 1
+                    if self.attitude_phase_start[attitude_num] >= len(self.attitudes_phase_all[attitude_num]):
+                    
+                        self.attitude_execute_time[attitude_num] = self.attitude_execute_time[attitude_num] - 1
+                    
+                        if self.attitude_execute_time[attitude_num] != 0:
+                            self.attitude_phase_start[attitude_num] = 0
+                        else:
+                            self.attitude_phase_start[attitude_num] = len(self.attitudes_phase_all[attitude_num]) - 1
+                        
+                    # update stop point phase
+                    self.attitude_phase_stop[attitude_num]  = self.attitude_phase_stop[attitude_num] + 1
+                    if self.attitude_phase_stop[attitude_num] >= len(self.attitudes_phase_all[attitude_num]):                 
+                        if self.attitude_execute_time[attitude_num] != 0:
+                            self.attitude_phase_stop[attitude_num] = 0 
+                        else:
+                            self.attitude_phase_stop[attitude_num] = len(self.attitudes_phase_all[attitude_num]) - 1  
+
         return True
 
     def updateLegDelt(self):
@@ -305,6 +470,7 @@ class Movements:
         location_start = self.legs_pre[leg_num] 
         loaction_execute = []
 
+        #print('delt:',self.legs_delt[leg_num])
         for xyz in range(3):
              diff = self.legs_delt[leg_num][xyz]
              delt_insert = diff/self.leg_subphase_length
@@ -471,6 +637,13 @@ class MovementScheme:
         self.entry_down = False
         self.exit_down = False
         self.movements_now = self.movements_lib[self.movement_now_number]
+        
+        print('Movement',self.movement_now_number, ' :',self.movements_now.getLegMovementName())
+        
+        # reset movement
+        self.movements_now.resetActuators()
+        self.movements_now.resetAttitude()
+        self.movements_now.resetLegs()        
 
         return self.movements_now.getLegMovementName()
 
