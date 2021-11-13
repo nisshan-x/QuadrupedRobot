@@ -1,4 +1,5 @@
 from src.Gaits import GaitController
+from src.GaitScheme import GaitScheme
 from src.StanceController import StanceController
 from src.SwingLegController import SwingController
 from src.Utilities import clipped_first_order_filter
@@ -27,8 +28,11 @@ class Controller:
         self.inverse_kinematics = inverse_kinematics
 
         self.contact_modes = np.zeros(4)
-        self.gait_controller = GaitController(self.config)
-
+        #self.gait_controller = GaitController(self.config)
+        
+        self.gait_controller = GaitScheme(1) ####
+        self.gait_controller.setCurrentGait('Trotting')
+        
         self.swing_controller = SwingController(self.config)
         self.stance_controller = StanceController(self.config)
 
@@ -47,7 +51,13 @@ class Controller:
         """
         global roll_gait
 
-        contact_modes = self.gait_controller.contacts(state.ticks)
+        #contact_modes = self.gait_controller.contacts(state.ticks)
+        
+        if command.gait_switch_event == 1:
+            self.gait_controller.switchGait()
+        self.gait_controller.updateGaitScheme()
+        contact_modes = self.gait_controller.current_leg_state        
+        
         new_foot_locations = np.zeros((3, 4))
 
         for leg_index in range(4):
@@ -56,9 +66,12 @@ class Controller:
             if contact_mode == 1 :
                 new_location = self.stance_controller.next_foot_location(leg_index, state,command)
             else:
-                swing_proportion = (
-                   self.gait_controller.subphase_ticks(state.ticks) / self.config.swing_ticks
-                )
+                #swing_proportion = (
+                #   self.gait_controller.subphase_ticks(state.ticks) / self.config.swing_ticks
+                #)
+
+                leg_progress = self.gait_controller.current_leg_progress
+                swing_proportion = leg_progress[leg_index]
                 
                 new_location = self.swing_controller.next_foot_location(
                     swing_proportion,
