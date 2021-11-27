@@ -107,7 +107,7 @@ class CalibrationTool:
         self.Title.place(x=140,y=15)
         
         #init robot image
-        self.photo = tk.PhotoImage(file='MiniPupper.gif')
+        self.photo = tk.PhotoImage(file='imgs/MiniPupper.gif')
         self.MainImg = Label(self.MainWindow,image = self.photo)
         self.MainImg.place(x=230,y=60)
 
