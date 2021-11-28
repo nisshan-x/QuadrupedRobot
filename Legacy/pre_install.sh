@@ -14,6 +14,7 @@ sudo apt-get install -y python3-pip
 sudo apt-get install -y cmake
 sudo apt-get install -y i2c-tools
 sudo apt-get install -y python
+sudo apt-get install python3-tk
 
 
 #Libraries of Python3
