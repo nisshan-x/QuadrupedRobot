@@ -10,8 +10,11 @@ from pupper.HardwareInterface import HardwareInterface
 from pupper.ServoCalibration import NEUTRAL_ANGLE_DEGREES
 
 
+
+loacl_path = os.getcwd()
+
 ServoMultipliers = np.array([[1, 1, -1, -1], [-1, 1, -1, 1], [-1, 1, -1, 1]])
-ServoCalibrationFilePath = 'pupper/ServoCalibration.py'
+ServoCalibrationFilePath = '/home/ubuntu/Robotics/QuadrupedRobot/StanfordQuadruped/pupper/ServoCalibration.py'
 
 class LegPositionScale:
 
@@ -107,7 +110,7 @@ class CalibrationTool:
         self.Title.place(x=140,y=15)
         
         #init robot image
-        self.photo = tk.PhotoImage(file='imgs/MiniPupper.gif')
+        self.photo = tk.PhotoImage(file= '/home/ubuntu/Robotics/QuadrupedRobot/StanfordQuadruped/imgs/MiniPupper.gif')
         self.MainImg = Label(self.MainWindow,image = self.photo)
         self.MainImg.place(x=230,y=60)
 

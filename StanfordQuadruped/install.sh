@@ -8,3 +8,5 @@ sudo ln -s $(realpath .)/robot.service /etc/systemd/system/
 sudo systemctl daemon-reload
 sudo systemctl enable robot
 sudo systemctl start robot
+
+cp CalibrationTool.desktop /home/ubuntu/Desktop
