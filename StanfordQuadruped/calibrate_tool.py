@@ -2,6 +2,7 @@ import re
 import tkinter as tk
 import tkinter.messagebox
 from tkinter import *
+from tkinter import filedialog
 import _thread
 import time
 import os
@@ -102,6 +103,16 @@ class CalibrationTool:
         size = '%dx%d+%d+%d' % (width, height, (screenwidth - width) / 2, (screenheight - height) / 2)
         self.MainWindow.geometry(size)
         self.MainWindow.title('MiniPupper')   #Mini Pupper Calibration Tool
+
+        #menu
+        self.men = tk.Menu(self.MainWindow)
+        self.MainWindow.config(menu=self.men)
+        self.menu_file = tk.Menu(self.MainWindow)
+        self.men.add_cascade(label="advanced", menu=self.menu_file)
+        self.menu_file.add_command(label="open a local config", command=self.open_local_file)
+        self.menu_file.add_command(label="save to local", command=self.save_to_local)
+
+
         self.MainWindow.update()
         
         #init title
@@ -132,6 +143,36 @@ class CalibrationTool:
         self.Leg4Calibration.setValue([self.ServoNeutralLAngle[0][3],self.ServoNeutralLAngle[1][3],self.ServoNeutralLAngle[2][3]])
         
 
+    def open_local_file(self):
+        local_filename = filedialog.askopenfilename(
+            title = "Open local file",
+            filetypes = [("config", ".config")], # file filer
+            initialdir = "./",
+            defaultextension = "config"
+        )
+        if local_filename:
+            #read all lines text from local
+            if self.readCalibrationFile(local_filename):
+                print("Get local calibration params: \n" , self.Matrix_EEPROM)
+                return True
+            else:
+                return False
+
+    def save_to_local(self):
+        local_filename = filedialog.asksaveasfilename(
+            title = "Save config to local",
+            filetypes = [("config", ".config")], # file filer
+            initialdir = "./",
+            defaultextension = "config"
+        )
+        if local_filename:
+            #write matrix to local
+            self.writeCalibrationFile(local_filename)
+            print("Save local calibration params: \n" , self.Matrix_EEPROM)
+            return True
+
+        return False
+
     def setLegSlidersValue(self,value):
         
         self.Leg1Calibration.setValue(value[0])
@@ -140,12 +181,10 @@ class CalibrationTool:
         self.Leg4Calibration.setValue(value[3])
         
         return value
-        
-    def readCalibrationFile(self):
     
-        #read all lines text from EEPROM
+    def readCalibrationFile(self, filepath):
         try:
-            with open(ServoCalibrationFilePath, "rb") as nv_f:
+            with open(filepath, "rb") as nv_f:
                 arr1 = np.array(eval(nv_f.readline()))
                 arr2 = np.array(eval(nv_f.readline()))
                 matrix = np.append(arr1, arr2)
@@ -153,17 +192,24 @@ class CalibrationTool:
                 matrix = np.append(matrix, arr3)
                 matrix.resize(3,4)
                 self.Matrix_EEPROM = matrix
-                print("Get nv calibration params: \n" , self.Matrix_EEPROM)
         except:
-            matrix = np.array([[-9, 9, 12, 15], [35, 35, 60, 35], [-30, -27, -22, -48]])
-            self.Matrix_EEPROM = matrix
-        #update
+            return False
         
         for i in range(3):
             for j in range(4):
                 self.NocalibrationServoAngle[i][j] = self.Matrix_EEPROM[i,j]
                 self.CalibrationServoAngle[i][j] = self.Matrix_EEPROM[i,j]
     
+        return True
+
+    def readCalibrationFileFromNV(self):
+    
+        #read all lines text from EEPROM
+        if self.readCalibrationFile(ServoCalibrationFilePath):
+            print("Get nv calibration params: \n" , self.Matrix_EEPROM)
+        else:
+            matrix = np.array([[-9, 9, 12, 15], [35, 35, 60, 35], [-30, -27, -22, -48]])
+            self.Matrix_EEPROM = matrix
         return True
         
     def updateCalibrationMatrix(self,angle):
@@ -174,7 +220,7 @@ class CalibrationTool:
 
         return True   
          
-    def writeCalibrationFile(self):
+    def writeCalibrationFile(self, filepath):
     
         #write matrix to EEPROM
         buf_matrix = np.zeros((3, 4))
@@ -188,7 +234,7 @@ class CalibrationTool:
         p2 = re.compile("(\]\n)") # pattern to add a comma at the end of the first two lines
         formatted_matrix_with_required_commas = p2.sub("],\n", partially_formatted_matrix)
         
-        with open(ServoCalibrationFilePath, "w") as nv_f:
+        with open(filepath, "w") as nv_f:
             _tmp = str(buf_matrix)
             _tmp = _tmp.replace('.' , ',')
             _tmp = _tmp.replace('[' , '')
@@ -197,6 +243,7 @@ class CalibrationTool:
             nv_f.close()
 
         return True
+
     def getLegSlidersValue(self):
 
         value = [[0,0,0,0],[0,0,0,0],[0,0,0,0]]
@@ -253,7 +300,7 @@ class CalibrationTool:
         # update matrix
         if result == 'yes':
             self.updateCalibrationMatrix(angle)
-            self.writeCalibrationFile()   
+            self.writeCalibrationFile(ServoCalibrationFilePath)   
                             
             print('******** Angle Matrix ********')
             print(angle[0])
@@ -298,11 +345,11 @@ def updateServoValue(MainWindow,servo):
 ##############################################    
 os.system("sudo systemctl stop robot")
 MainWindow = CalibrationTool('MiniPupper Calibration Tool',800,500)
-MainWindow.readCalibrationFile()
+MainWindow.readCalibrationFileFromNV()
 hardware_interface = HardwareInterface()
 try:
+    print("a")
     _thread.start_new_thread( updateServoValue, ( MainWindow, hardware_interface,) )
-
 except:
     print ('Thread Error')
    
